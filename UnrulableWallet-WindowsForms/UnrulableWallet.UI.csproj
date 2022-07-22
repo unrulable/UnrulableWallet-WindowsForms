@@ -212,9 +212,18 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="CreateWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateWallet.Designer.cs">
+      <DependentUpon>CreateWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +236,9 @@
     <Compile Include="Shared\Enums.cs" />
     <Compile Include="Shared\Helpers.cs" />
     <Compile Include="Wrapper\QBitNinjaWrapper.cs" />
+    <EmbeddedResource Include="CreateWallet.resx">
+      <DependentUpon>CreateWallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,5 +266,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

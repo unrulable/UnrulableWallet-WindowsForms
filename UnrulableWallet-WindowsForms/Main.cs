@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using static UnrulableWallet.UI.Shared.Enums;
 using NBitcoin;
 using System.IO;
+using System.Linq;
 using static System.Console;
 using HBitcoin.KeyManagement;
 using static UnrulableWallet.UI.Wrapper.QBitNinjaWrapper;
@@ -15,6 +16,15 @@ namespace UnrulableWallet.UI
 {
     public partial class Main : Form
     {
+        public static int currentAvailableWalletsCount;
+
+        #region Models
+
+        public int CurrentAvailableWalletsCount => this.comboBoxYourAvailableWallets.Items.Count;
+        public string CurrentOpenedWalletName => this.comboBoxYourAvailableWallets.SelectedItem.ToString();
+
+        #endregion
+
         #region Constructors
         public Main()
         {
@@ -25,18 +35,18 @@ namespace UnrulableWallet.UI
             Config.Load();
 
             // Load available wallets to open
-            string[] wallets = Directory.GetFiles(@"Wallets", "*");
-            List<string> walletsList = new List<string>();
-            foreach (string wallet in wallets)
-            {
-                string fileName = Path.GetFileName(wallet).Replace(".json", string.Empty);
-                walletsList.Add(fileName);
-            }
-            comboBoxYourAvailableWallets.Items.AddRange(walletsList.ToArray());
+            PopulateAvailableWalletsDropDown(GetAvailableBitcoinWallets());
         }
         #endregion
 
         #region Display Methods
+
+        private void PopulateAvailableWalletsDropDown(List<string> walletsList)
+        {
+            comboBoxYourAvailableWallets.Items.Clear();
+            comboBoxYourAvailableWallets.Items.AddRange(walletsList.ToArray());
+        }
+
         private void GenerateTransactionDetailsDisplay(GetTransactionResponse transaction)
         {
             lblTransactionStatusValue.Text = $"{transaction.Block.Confirmations} Confirmations";
@@ -123,20 +133,63 @@ namespace UnrulableWallet.UI
             GenerateWalletRecoveredDisplay(mnemonic, walletFilePath);
         }
 
-        private void btnGenerateAddress_Click(object sender, EventArgs e)
+        private void btnOpenWallet_Click(object sender, EventArgs e)
         {
-            var walletFilePath = GetWalletFilePath(txtWalletNameToGenerateAddressFor.Text);
-            Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtWalletPasswordToGenerateAddressFor.Text);
+            lblStatusRetrievingWalletDetails.Show();
+            var walletFilePath = GetWalletFilePath(CurrentOpenedWalletName);
+            Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
+            List<string> confirmBalances = ShowBalances(walletFilePath, safe);
+
+            groupBoxCurrentWalletOpenDetails.Show();
+            groupBoxEntryView.Hide();
+            lblCurrentWalletNameOpenValue.Text = CurrentOpenedWalletName;
+            lblOpenWalletBalanceValue.Text = confirmBalances.Count == 0 ? "0" : CalculateBalanceTotal(confirmBalances);
+            lblTransactionCountValue.Text = confirmBalances.Count.ToString();
+        }
+
+        private void toolStripMenuItemWalletCreate_Click(object sender, EventArgs e)
+        {
+            CreateWallet createWalletForm = new CreateWallet();
+            createWalletForm.ShowDialog();
+
+            //Refresh available wallets to open list
+            PopulateAvailableWalletsDropDown(GetAvailableBitcoinWallets());
+        }
+
+        private void toolStripMenuItemOpenWallet_Click(object sender, EventArgs e)
+        {
+            groupBoxCurrentWalletOpenDetails.Hide();
+            groupBoxEntryView.Show();
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("SEND!!!!");
+            groupBoxSendBitcoin.Show();
+            //groupBoxWalletTransactions.Hide();
+        }
+
+        private void btnTransactions_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Transactions!!!!");
+            groupBoxWalletTransactions.Show();
+            groupBoxSendBitcoin.Hide();
+        }
+
+        private void btnReceive_Click(object sender, EventArgs e)
+        {
+            var walletFilePath = GetWalletFilePath(CurrentOpenedWalletName);
+            Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
 
             if (Config.ConnectionType == ConnectionType.Http)
             {
                 Dictionary<BitcoinAddress, List<BalanceOperation>> operationsPerReceiveAddresses = QueryOperationsPerSafeAddresses(safe, 7, HdPathType.Receive);
 
-                foreach (var elem in operationsPerReceiveAddresses)
-                    if (elem.Value.Count == 0)
-                        WriteLine($"{elem.Key}");
-
-
+                Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+                pictureBoxBitcoinReceiveAddressQrCode.Image = qrcode.Draw(operationsPerReceiveAddresses.ElementAt(0).Key.ToString(), 50);
+                //foreach (var elem in operationsPerReceiveAddresses)
+                //    if (elem.Value.Count == 0)
+                //        WriteLine($"{elem.Key}");
             }
             else if (Config.ConnectionType == ConnectionType.FullNode)
             {
@@ -146,30 +199,37 @@ namespace UnrulableWallet.UI
             {
                 throw new Exception("Invalid connection type.");
             }
+
+            groupBoxReceiveBitcoin.Show();
         }
 
-        private void btnOpenWallet_Click(object sender, EventArgs e)
-        {
-            lblStatusRetrievingWalletDetails.Show();
-            string selectedWalletName = comboBoxYourAvailableWallets.SelectedItem.ToString();
-            var walletFilePath = GetWalletFilePath(selectedWalletName);
-            Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
-            List<string> confirmBalances = ShowBalances(walletFilePath, safe);
+        #endregion
 
-            groupBoxCurrentWalletOpenDetails.Show();
-            groupBoxEntryView.Hide();
-            lblCurrentWalletNameOpenValue.Text = selectedWalletName;
-            lblOpenWalletBalanceValue.Text = confirmBalances.Count == 0 ? "0" : CalculateBalanceTotal(confirmBalances);
-            lblTransactionCountValue.Text = confirmBalances.Count.ToString();
-        }
-
+        #region Private Methods
         private string CalculateBalanceTotal(List<string> confirmBalances)
         {
             return "0";
         }
 
-        #endregion
+        private static List<string> GetAvailableBitcoinWallets()
+        {
+            string[] wallets = Directory.GetFiles(@"Wallets", "*");
+            List<string> walletsList = new List<string>();
 
+            // The stored wallet count != wallets we just pulled from directory
+            // then update the list so we have the full list of available wallets
+            if (currentAvailableWalletsCount != wallets.Length)
+            {
+                foreach (string wallet in wallets)
+                {
+                    string fileName = Path.GetFileName(wallet).Replace(".json", string.Empty);
+                    walletsList.Add(fileName);
+                    currentAvailableWalletsCount++;
+                }
+            }
+
+            return walletsList;
+        }
 
         private static Safe DecryptWalletByAskingForPassword(string walletFilePath, string walletPassword)
         {
@@ -197,24 +257,6 @@ namespace UnrulableWallet.UI
             return safe;
         }
 
-        private void toolStripMenuItemWalletCreate_Click(object sender, EventArgs e)
-        {
-            //AssertArgumentsLength(args.Length, 1, 2);
-            //var walletFilePath = GetWalletFilePath(txtWalletName.Text);
-            //AssertWalletNotExists(walletFilePath);
-
-            //// 3. Create wallet
-            //string pw = txtWalletPassword.Text.ToString();
-            //Mnemonic mnemonic;
-            //Safe safe = Safe.Create(out mnemonic, pw, walletFilePath, Config.Network);
-
-            //GenerateNewWalletCreatedDisplay(mnemonic, walletFilePath);
-        }
-
-        private void toolStripMenuItemOpenWallet_Click(object sender, EventArgs e)
-        {
-            groupBoxCurrentWalletOpenDetails.Hide();
-            groupBoxEntryView.Show();
-        }
+        #endregion
     }
 }
