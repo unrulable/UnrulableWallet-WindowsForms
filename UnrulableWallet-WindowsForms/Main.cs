@@ -58,22 +58,13 @@ namespace UnrulableWallet.UI
             lblVersionValue.Text = $"{transaction.Block.BlockHeader.Version}";
         }
 
-        private void GenerateNewWalletCreatedDisplay(Mnemonic mnemonic, string walletFilePath)
-        {
-            groupBoxNewWalletDetails.Show();
-            lblMnemonicValue.Text = mnemonic.ToString();
-            lblWalletFilePathValue.Text = walletFilePath;
-            lblWalletCreateStatusValue.Text = "Successful";
-            lblWalletCreateStatusValue.ForeColor = Color.Green;
-        }
-
         private void GenerateWalletRecoveredDisplay(Mnemonic mnemonic, string walletFilePath)
         {
-            groupBoxNewWalletDetails.Show();
-            lblMnemonicValue.Text = mnemonic.ToString();
-            lblWalletFilePathValue.Text = walletFilePath;
-            lblWalletCreateStatusValue.Text = "Successful";
-            lblWalletCreateStatusValue.ForeColor = Color.Green;
+            //groupBoxNewWalletDetails.Show();
+            //lblMnemonicValue.Text = mnemonic.ToString();
+            //lblWalletFilePathValue.Text = walletFilePath;
+            //lblWalletCreateStatusValue.Text = "Successful";
+            //lblWalletCreateStatusValue.ForeColor = Color.Green;
         }
 
         private void GenerateQrCodeDisplay(string value, int qrCodeHeight, PictureBox pictureBoxObject)
@@ -127,21 +118,6 @@ namespace UnrulableWallet.UI
         {
         }
 
-        private void btnRecoverWallet_Click(object sender, EventArgs e)
-        {
-            var walletFilePath = GetWalletFilePath("");
-            AssertWalletNotExists(walletFilePath);
-
-            var mnemonicString = txtProvideYourMnemonicRecoverWallet.Text;
-            AssertCorrectMnemonicFormat(mnemonicString);
-            var mnemonic = new Mnemonic(mnemonicString);
-            var password = txtProvidePasswordRecoverWallet.Text;
-
-            Safe safe = Safe.Recover(mnemonic, password, walletFilePath, Config.Network);
-            // If no exception thrown the wallet is successfully recovered.
-            GenerateWalletRecoveredDisplay(mnemonic, walletFilePath);
-        }
-
         private void btnOpenWallet_Click(object sender, EventArgs e)
         {
             lblStatusRetrievingWalletDetails.Show();
@@ -163,6 +139,12 @@ namespace UnrulableWallet.UI
 
             //Refresh available wallets to open list
             PopulateAvailableWalletsDropDown(GetAvailableBitcoinWallets());
+        }
+
+        private void toolStripMenuItemRecoverWallet_Click(object sender, EventArgs e)
+        {
+            RecoverWallet recoverWalletForm = new RecoverWallet();
+            recoverWalletForm.ShowDialog();
         }
 
         private void toolStripMenuItemOpenWallet_Click(object sender, EventArgs e)

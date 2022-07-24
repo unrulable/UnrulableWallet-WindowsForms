@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using HBitcoin.KeyManagement;
 using NBitcoin;
@@ -26,8 +27,11 @@ namespace UnrulableWallet.UI
                 Mnemonic mnemonic;
                 Safe safe = Safe.Create(out mnemonic, pw, walletFilePath, Config.Network);
 
-                // Close the form
-                Close();
+                groupBoxNewWalletDetails.Show();
+                lblMnemonicValue.Text = mnemonic.ToString();
+                lblWalletFilePathValue.Text = walletFilePath;
+                lblWalletCreateStatusValue.Text = "Successful";
+                lblWalletCreateStatusValue.ForeColor = Color.Green;
             }
             catch(Exception ex)
             {

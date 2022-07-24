@@ -234,6 +234,12 @@
     <Compile Include="Models\ReceiveBitcoinModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecoverWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecoverWallet.Designer.cs">
+      <DependentUpon>RecoverWallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\Enums.cs" />
     <Compile Include="Shared\Helpers.cs" />
     <Compile Include="Wrapper\QBitNinjaWrapper.cs" />
@@ -252,6 +258,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RecoverWallet.resx">
+      <DependentUpon>RecoverWallet.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\UnrulableWallet.UI.Models.AddressHistoryRecord.datasource" />
     <None Include="Properties\DataSources\UnrulableWallet.UI.Models.ReceiveBitcoinModel.datasource" />

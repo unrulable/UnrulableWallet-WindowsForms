@@ -30,27 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControlaUnrulableWallet = new System.Windows.Forms.TabControl();
-            this.tabPageCreateWallet = new System.Windows.Forms.TabPage();
-            this.groupBoxNewWalletDetails = new System.Windows.Forms.GroupBox();
-            this.lblWalletCreateStatusValue = new System.Windows.Forms.Label();
-            this.lblWalletCreateStatus = new System.Windows.Forms.Label();
-            this.lblYouCanRecoverYourWalletInfoMessage = new System.Windows.Forms.Label();
-            this.lblWriteDownTheMnemonic = new System.Windows.Forms.Label();
-            this.lblWalletFilePathValue = new System.Windows.Forms.TextBox();
-            this.lblWalletFilePath = new System.Windows.Forms.Label();
-            this.lblMnemonicValue = new System.Windows.Forms.TextBox();
-            this.lblMnemonic = new System.Windows.Forms.Label();
-            this.txtWalletPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblWalletName = new System.Windows.Forms.Label();
-            this.txtWalletName = new System.Windows.Forms.TextBox();
-            this.btnCreateWallet = new System.Windows.Forms.Button();
-            this.tabPageRecoverWallet = new System.Windows.Forms.TabPage();
-            this.lblPleaseProvideMnemonic = new System.Windows.Forms.Label();
-            this.lblProvideYourPassword = new System.Windows.Forms.Label();
-            this.btnRecoverWallet = new System.Windows.Forms.Button();
-            this.txtProvidePasswordRecoverWallet = new System.Windows.Forms.TextBox();
-            this.txtProvideYourMnemonicRecoverWallet = new System.Windows.Forms.TextBox();
             this.tabPageSearchTransaction = new System.Windows.Forms.TabPage();
             this.btnSearchTransactionId = new System.Windows.Forms.Button();
             this.txtSearchTransactionId = new System.Windows.Forms.TextBox();
@@ -73,9 +52,7 @@
             this.receiveBitcoinModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtCurrentBitcoinReceiveAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.pictureBoxBitcoinReceiveAddressQrCode = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.lblAddressThatWasGenerated = new System.Windows.Forms.Label();
             this.tabPageSendBitcoin = new System.Windows.Forms.TabPage();
             this.allAvailableBitcoinAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -120,9 +97,6 @@
             this.toolStripMenuItemWalletCreate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRecoverWallet = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlaUnrulableWallet.SuspendLayout();
-            this.tabPageCreateWallet.SuspendLayout();
-            this.groupBoxNewWalletDetails.SuspendLayout();
-            this.tabPageRecoverWallet.SuspendLayout();
             this.tabPageSearchTransaction.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageReceiveBitcoin.SuspendLayout();
@@ -142,8 +116,6 @@
             // tabControlaUnrulableWallet
             // 
             this.tabControlaUnrulableWallet.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControlaUnrulableWallet.Controls.Add(this.tabPageCreateWallet);
-            this.tabControlaUnrulableWallet.Controls.Add(this.tabPageRecoverWallet);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageSearchTransaction);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageReceiveBitcoin);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageSendBitcoin);
@@ -154,215 +126,6 @@
             this.tabControlaUnrulableWallet.TabIndex = 2;
             this.tabControlaUnrulableWallet.Visible = false;
             this.tabControlaUnrulableWallet.SelectedIndexChanged += new System.EventHandler(this.tabPageControl_IndexChanged);
-            // 
-            // tabPageCreateWallet
-            // 
-            this.tabPageCreateWallet.Controls.Add(this.groupBoxNewWalletDetails);
-            this.tabPageCreateWallet.Controls.Add(this.txtWalletPassword);
-            this.tabPageCreateWallet.Controls.Add(this.label2);
-            this.tabPageCreateWallet.Controls.Add(this.lblWalletName);
-            this.tabPageCreateWallet.Controls.Add(this.txtWalletName);
-            this.tabPageCreateWallet.Controls.Add(this.btnCreateWallet);
-            this.tabPageCreateWallet.Location = new System.Drawing.Point(4, 37);
-            this.tabPageCreateWallet.Name = "tabPageCreateWallet";
-            this.tabPageCreateWallet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCreateWallet.Size = new System.Drawing.Size(1024, 750);
-            this.tabPageCreateWallet.TabIndex = 0;
-            this.tabPageCreateWallet.Text = "Create Wallet";
-            this.tabPageCreateWallet.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxNewWalletDetails
-            // 
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblWalletCreateStatusValue);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblWalletCreateStatus);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblYouCanRecoverYourWalletInfoMessage);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblWriteDownTheMnemonic);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblWalletFilePathValue);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblWalletFilePath);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblMnemonicValue);
-            this.groupBoxNewWalletDetails.Controls.Add(this.lblMnemonic);
-            this.groupBoxNewWalletDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxNewWalletDetails.Location = new System.Drawing.Point(55, 275);
-            this.groupBoxNewWalletDetails.Name = "groupBoxNewWalletDetails";
-            this.groupBoxNewWalletDetails.Size = new System.Drawing.Size(931, 426);
-            this.groupBoxNewWalletDetails.TabIndex = 5;
-            this.groupBoxNewWalletDetails.TabStop = false;
-            this.groupBoxNewWalletDetails.Text = "New Wallet Details";
-            // 
-            // lblWalletCreateStatusValue
-            // 
-            this.lblWalletCreateStatusValue.AutoSize = true;
-            this.lblWalletCreateStatusValue.Location = new System.Drawing.Point(114, 37);
-            this.lblWalletCreateStatusValue.Name = "lblWalletCreateStatusValue";
-            this.lblWalletCreateStatusValue.Size = new System.Drawing.Size(0, 25);
-            this.lblWalletCreateStatusValue.TabIndex = 7;
-            // 
-            // lblWalletCreateStatus
-            // 
-            this.lblWalletCreateStatus.AutoSize = true;
-            this.lblWalletCreateStatus.Location = new System.Drawing.Point(21, 38);
-            this.lblWalletCreateStatus.Name = "lblWalletCreateStatus";
-            this.lblWalletCreateStatus.Size = new System.Drawing.Size(86, 25);
-            this.lblWalletCreateStatus.TabIndex = 6;
-            this.lblWalletCreateStatus.Text = "Status:";
-            // 
-            // lblYouCanRecoverYourWalletInfoMessage
-            // 
-            this.lblYouCanRecoverYourWalletInfoMessage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblYouCanRecoverYourWalletInfoMessage.Location = new System.Drawing.Point(158, 214);
-            this.lblYouCanRecoverYourWalletInfoMessage.Name = "lblYouCanRecoverYourWalletInfoMessage";
-            this.lblYouCanRecoverYourWalletInfoMessage.Size = new System.Drawing.Size(695, 82);
-            this.lblYouCanRecoverYourWalletInfoMessage.TabIndex = 5;
-            this.lblYouCanRecoverYourWalletInfoMessage.Text = "With the mnemonic words AND your password you can recover this wallet by using th" +
-    "e recover-wallet command.";
-            // 
-            // lblWriteDownTheMnemonic
-            // 
-            this.lblWriteDownTheMnemonic.AutoSize = true;
-            this.lblWriteDownTheMnemonic.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblWriteDownTheMnemonic.Location = new System.Drawing.Point(21, 82);
-            this.lblWriteDownTheMnemonic.Name = "lblWriteDownTheMnemonic";
-            this.lblWriteDownTheMnemonic.Size = new System.Drawing.Size(458, 25);
-            this.lblWriteDownTheMnemonic.TabIndex = 4;
-            this.lblWriteDownTheMnemonic.Text = "Write down the following mnemonic words.";
-            // 
-            // lblWalletFilePathValue
-            // 
-            this.lblWalletFilePathValue.Location = new System.Drawing.Point(163, 367);
-            this.lblWalletFilePathValue.Name = "lblWalletFilePathValue";
-            this.lblWalletFilePathValue.Size = new System.Drawing.Size(690, 31);
-            this.lblWalletFilePathValue.TabIndex = 3;
-            // 
-            // lblWalletFilePath
-            // 
-            this.lblWalletFilePath.AutoSize = true;
-            this.lblWalletFilePath.Location = new System.Drawing.Point(21, 367);
-            this.lblWalletFilePath.Name = "lblWalletFilePath";
-            this.lblWalletFilePath.Size = new System.Drawing.Size(113, 25);
-            this.lblWalletFilePath.TabIndex = 2;
-            this.lblWalletFilePath.Text = "File Path:";
-            // 
-            // lblMnemonicValue
-            // 
-            this.lblMnemonicValue.Location = new System.Drawing.Point(163, 121);
-            this.lblMnemonicValue.Multiline = true;
-            this.lblMnemonicValue.Name = "lblMnemonicValue";
-            this.lblMnemonicValue.Size = new System.Drawing.Size(690, 80);
-            this.lblMnemonicValue.TabIndex = 1;
-            // 
-            // lblMnemonic
-            // 
-            this.lblMnemonic.AutoSize = true;
-            this.lblMnemonic.Location = new System.Drawing.Point(21, 121);
-            this.lblMnemonic.Name = "lblMnemonic";
-            this.lblMnemonic.Size = new System.Drawing.Size(126, 25);
-            this.lblMnemonic.TabIndex = 0;
-            this.lblMnemonic.Text = "Mnemonic:";
-            // 
-            // txtWalletPassword
-            // 
-            this.txtWalletPassword.Location = new System.Drawing.Point(172, 88);
-            this.txtWalletPassword.Name = "txtWalletPassword";
-            this.txtWalletPassword.PasswordChar = '*';
-            this.txtWalletPassword.Size = new System.Drawing.Size(790, 31);
-            this.txtWalletPassword.TabIndex = 4;
-            this.txtWalletPassword.UseSystemPasswordChar = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Password:";
-            // 
-            // lblWalletName
-            // 
-            this.lblWalletName.AutoSize = true;
-            this.lblWalletName.Location = new System.Drawing.Point(26, 45);
-            this.lblWalletName.Name = "lblWalletName";
-            this.lblWalletName.Size = new System.Drawing.Size(140, 25);
-            this.lblWalletName.TabIndex = 2;
-            this.lblWalletName.Text = "Wallet Name:";
-            // 
-            // txtWalletName
-            // 
-            this.txtWalletName.Location = new System.Drawing.Point(172, 45);
-            this.txtWalletName.Multiline = true;
-            this.txtWalletName.Name = "txtWalletName";
-            this.txtWalletName.Size = new System.Drawing.Size(790, 31);
-            this.txtWalletName.TabIndex = 1;
-            // 
-            // btnCreateWallet
-            // 
-            this.btnCreateWallet.Location = new System.Drawing.Point(333, 145);
-            this.btnCreateWallet.Name = "btnCreateWallet";
-            this.btnCreateWallet.Size = new System.Drawing.Size(203, 55);
-            this.btnCreateWallet.TabIndex = 0;
-            this.btnCreateWallet.Text = "Create";
-            this.btnCreateWallet.UseVisualStyleBackColor = true;
-            this.btnCreateWallet.Click += new System.EventHandler(this.btnCreateWallet_Click);
-            // 
-            // tabPageRecoverWallet
-            // 
-            this.tabPageRecoverWallet.Controls.Add(this.lblPleaseProvideMnemonic);
-            this.tabPageRecoverWallet.Controls.Add(this.lblProvideYourPassword);
-            this.tabPageRecoverWallet.Controls.Add(this.btnRecoverWallet);
-            this.tabPageRecoverWallet.Controls.Add(this.txtProvidePasswordRecoverWallet);
-            this.tabPageRecoverWallet.Controls.Add(this.txtProvideYourMnemonicRecoverWallet);
-            this.tabPageRecoverWallet.Location = new System.Drawing.Point(4, 37);
-            this.tabPageRecoverWallet.Name = "tabPageRecoverWallet";
-            this.tabPageRecoverWallet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRecoverWallet.Size = new System.Drawing.Size(1024, 750);
-            this.tabPageRecoverWallet.TabIndex = 2;
-            this.tabPageRecoverWallet.Text = "Recover Wallet";
-            this.tabPageRecoverWallet.UseVisualStyleBackColor = true;
-            // 
-            // lblPleaseProvideMnemonic
-            // 
-            this.lblPleaseProvideMnemonic.Location = new System.Drawing.Point(43, 36);
-            this.lblPleaseProvideMnemonic.Name = "lblPleaseProvideMnemonic";
-            this.lblPleaseProvideMnemonic.Size = new System.Drawing.Size(548, 62);
-            this.lblPleaseProvideMnemonic.TabIndex = 4;
-            this.lblPleaseProvideMnemonic.Text = "Provide your mnemonic words, separated by spaces:";
-            // 
-            // lblProvideYourPassword
-            // 
-            this.lblProvideYourPassword.Location = new System.Drawing.Point(43, 281);
-            this.lblProvideYourPassword.Name = "lblProvideYourPassword";
-            this.lblProvideYourPassword.Size = new System.Drawing.Size(873, 85);
-            this.lblProvideYourPassword.TabIndex = 3;
-            this.lblProvideYourPassword.Text = "Provide your password. Please note the wallet cannot check if your password is co" +
-    "rrect or not. If you provide a wrong password a wallet will be recovered with yo" +
-    "ur provided mnemonic AND password pair:";
-            // 
-            // btnRecoverWallet
-            // 
-            this.btnRecoverWallet.Location = new System.Drawing.Point(48, 433);
-            this.btnRecoverWallet.Name = "btnRecoverWallet";
-            this.btnRecoverWallet.Size = new System.Drawing.Size(868, 39);
-            this.btnRecoverWallet.TabIndex = 2;
-            this.btnRecoverWallet.Text = "Recover";
-            this.btnRecoverWallet.UseVisualStyleBackColor = true;
-            this.btnRecoverWallet.Click += new System.EventHandler(this.btnRecoverWallet_Click);
-            // 
-            // txtProvidePasswordRecoverWallet
-            // 
-            this.txtProvidePasswordRecoverWallet.Location = new System.Drawing.Point(48, 386);
-            this.txtProvidePasswordRecoverWallet.Name = "txtProvidePasswordRecoverWallet";
-            this.txtProvidePasswordRecoverWallet.PasswordChar = '*';
-            this.txtProvidePasswordRecoverWallet.Size = new System.Drawing.Size(868, 31);
-            this.txtProvidePasswordRecoverWallet.TabIndex = 1;
-            this.txtProvidePasswordRecoverWallet.UseSystemPasswordChar = true;
-            // 
-            // txtProvideYourMnemonicRecoverWallet
-            // 
-            this.txtProvideYourMnemonicRecoverWallet.Location = new System.Drawing.Point(48, 101);
-            this.txtProvideYourMnemonicRecoverWallet.Multiline = true;
-            this.txtProvideYourMnemonicRecoverWallet.Name = "txtProvideYourMnemonicRecoverWallet";
-            this.txtProvideYourMnemonicRecoverWallet.Size = new System.Drawing.Size(868, 136);
-            this.txtProvideYourMnemonicRecoverWallet.TabIndex = 0;
             // 
             // tabPageSearchTransaction
             // 
@@ -527,9 +290,7 @@
             this.tabPageReceiveBitcoin.Controls.Add(this.listBoxAllAvailableBitcoinAddresses);
             this.tabPageReceiveBitcoin.Controls.Add(this.txtCurrentBitcoinReceiveAddress);
             this.tabPageReceiveBitcoin.Controls.Add(this.label4);
-            this.tabPageReceiveBitcoin.Controls.Add(this.label5);
             this.tabPageReceiveBitcoin.Controls.Add(this.pictureBoxBitcoinReceiveAddressQrCode);
-            this.tabPageReceiveBitcoin.Controls.Add(this.textBox6);
             this.tabPageReceiveBitcoin.Controls.Add(this.lblAddressThatWasGenerated);
             this.tabPageReceiveBitcoin.Location = new System.Drawing.Point(4, 37);
             this.tabPageReceiveBitcoin.Name = "tabPageReceiveBitcoin";
@@ -555,7 +316,7 @@
             this.listBoxAllAvailableBitcoinAddresses.ItemHeight = 25;
             this.listBoxAllAvailableBitcoinAddresses.Location = new System.Drawing.Point(329, 39);
             this.listBoxAllAvailableBitcoinAddresses.Name = "listBoxAllAvailableBitcoinAddresses";
-            this.listBoxAllAvailableBitcoinAddresses.Size = new System.Drawing.Size(469, 154);
+            this.listBoxAllAvailableBitcoinAddresses.Size = new System.Drawing.Size(469, 179);
             this.listBoxAllAvailableBitcoinAddresses.TabIndex = 9;
             this.listBoxAllAvailableBitcoinAddresses.SelectedValueChanged += new System.EventHandler(this.listViewAvailableBitcoinAddress_SelectedValueChanged);
             // 
@@ -572,7 +333,7 @@
             // 
             this.txtCurrentBitcoinReceiveAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCurrentBitcoinReceiveAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.receiveBitcoinModelBindingSource, "BitcoinAddress", true));
-            this.txtCurrentBitcoinReceiveAddress.Location = new System.Drawing.Point(169, 221);
+            this.txtCurrentBitcoinReceiveAddress.Location = new System.Drawing.Point(169, 254);
             this.txtCurrentBitcoinReceiveAddress.Name = "txtCurrentBitcoinReceiveAddress";
             this.txtCurrentBitcoinReceiveAddress.Size = new System.Drawing.Size(629, 31);
             this.txtCurrentBitcoinReceiveAddress.TabIndex = 1;
@@ -582,21 +343,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 229);
+            this.label4.Location = new System.Drawing.Point(37, 262);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Address:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 280);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Label:";
             // 
             // pictureBoxBitcoinReceiveAddressQrCode
             // 
@@ -606,15 +357,6 @@
             this.pictureBoxBitcoinReceiveAddressQrCode.Size = new System.Drawing.Size(469, 375);
             this.pictureBoxBitcoinReceiveAddressQrCode.TabIndex = 8;
             this.pictureBoxBitcoinReceiveAddressQrCode.TabStop = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(169, 277);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(629, 31);
-            this.textBox6.TabIndex = 3;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAddressThatWasGenerated
             // 
@@ -723,7 +465,7 @@
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.btnSend);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.btnTransactions);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.groupBoxWalletTransactions);
-            this.groupBoxCurrentWalletOpenDetails.Location = new System.Drawing.Point(1204, 98);
+            this.groupBoxCurrentWalletOpenDetails.Location = new System.Drawing.Point(1123, 87);
             this.groupBoxCurrentWalletOpenDetails.Name = "groupBoxCurrentWalletOpenDetails";
             this.groupBoxCurrentWalletOpenDetails.Size = new System.Drawing.Size(1468, 783);
             this.groupBoxCurrentWalletOpenDetails.TabIndex = 3;
@@ -782,7 +524,7 @@
             this.groupBoxWalletTransactions.Controls.Add(this.lblOpenWalletBalanceValue);
             this.groupBoxWalletTransactions.Controls.Add(this.lblTransactionCount);
             this.groupBoxWalletTransactions.Controls.Add(this.label3);
-            this.groupBoxWalletTransactions.Location = new System.Drawing.Point(11, 41);
+            this.groupBoxWalletTransactions.Location = new System.Drawing.Point(22, 42);
             this.groupBoxWalletTransactions.Name = "groupBoxWalletTransactions";
             this.groupBoxWalletTransactions.Size = new System.Drawing.Size(1142, 716);
             this.groupBoxWalletTransactions.TabIndex = 9;
@@ -1063,6 +805,7 @@
             this.toolStripMenuItemRecoverWallet.Name = "toolStripMenuItemRecoverWallet";
             this.toolStripMenuItemRecoverWallet.Size = new System.Drawing.Size(231, 44);
             this.toolStripMenuItemRecoverWallet.Text = "Recover";
+            this.toolStripMenuItemRecoverWallet.Click += new System.EventHandler(this.toolStripMenuItemRecoverWallet_Click);
             // 
             // Main
             // 
@@ -1079,12 +822,6 @@
             this.Name = "Main";
             this.Text = "Unrulable Wallet";
             this.tabControlaUnrulableWallet.ResumeLayout(false);
-            this.tabPageCreateWallet.ResumeLayout(false);
-            this.tabPageCreateWallet.PerformLayout();
-            this.groupBoxNewWalletDetails.ResumeLayout(false);
-            this.groupBoxNewWalletDetails.PerformLayout();
-            this.tabPageRecoverWallet.ResumeLayout(false);
-            this.tabPageRecoverWallet.PerformLayout();
             this.tabPageSearchTransaction.ResumeLayout(false);
             this.tabPageSearchTransaction.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1114,16 +851,10 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlaUnrulableWallet;
-        private System.Windows.Forms.TabPage tabPageCreateWallet;
         private System.Windows.Forms.TabPage tabPageSearchTransaction;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearchTransactionId;
         private System.Windows.Forms.TextBox txtSearchTransactionId;
-        private System.Windows.Forms.Button btnCreateWallet;
-        private System.Windows.Forms.TextBox txtWalletPassword;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblWalletName;
-        private System.Windows.Forms.TextBox txtWalletName;
         private System.Windows.Forms.TextBox lblTransactionStatusValue;
         private System.Windows.Forms.Label lblTransactionStatus;
         private System.Windows.Forms.TextBox lblIncludedInBlockValue;
@@ -1135,23 +866,8 @@
         private System.Windows.Forms.Label lblBlockTimestamp;
         private System.Windows.Forms.TextBox lblVersionValue;
         private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.GroupBox groupBoxNewWalletDetails;
-        private System.Windows.Forms.Label lblMnemonic;
-        private System.Windows.Forms.TextBox lblMnemonicValue;
-        private System.Windows.Forms.TextBox lblWalletFilePathValue;
-        private System.Windows.Forms.Label lblWalletFilePath;
-        private System.Windows.Forms.Label lblWriteDownTheMnemonic;
-        private System.Windows.Forms.Label lblYouCanRecoverYourWalletInfoMessage;
-        private System.Windows.Forms.TabPage tabPageRecoverWallet;
-        private System.Windows.Forms.Label lblPleaseProvideMnemonic;
-        private System.Windows.Forms.Label lblProvideYourPassword;
-        private System.Windows.Forms.Button btnRecoverWallet;
-        private System.Windows.Forms.TextBox txtProvidePasswordRecoverWallet;
-        private System.Windows.Forms.TextBox txtProvideYourMnemonicRecoverWallet;
         private System.Windows.Forms.TabPage tabPageReceiveBitcoin;
         private System.Windows.Forms.TabPage tabPageSendBitcoin;
-        private System.Windows.Forms.Label lblWalletCreateStatusValue;
-        private System.Windows.Forms.Label lblWalletCreateStatus;
         private System.Windows.Forms.Label lblAddressThatWasGenerated;
         private System.Windows.Forms.GroupBox groupBoxCurrentWalletOpenDetails;
         private System.Windows.Forms.Label lblCurrentWalletOpenName;
@@ -1195,8 +911,6 @@
         private System.Windows.Forms.ComboBox comboBoxSendCurrencySelection;
         private System.Windows.Forms.TextBox txtCurrentBitcoinReceiveAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.PictureBox pictureBoxBitcoinReceiveAddressQrCode;
         private System.Windows.Forms.BindingSource receiveBitcoinModelBindingSource;
         private System.Windows.Forms.BindingSource allAvailableBitcoinAddressesBindingSource;
