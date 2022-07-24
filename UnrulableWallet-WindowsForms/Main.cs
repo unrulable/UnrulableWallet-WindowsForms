@@ -7,8 +7,8 @@ using static UnrulableWallet.UI.Shared.Enums;
 using NBitcoin;
 using System.IO;
 using System.Linq;
-using static System.Console;
 using HBitcoin.KeyManagement;
+using UnrulableWallet.UI.Models;
 using static UnrulableWallet.UI.Wrapper.QBitNinjaWrapper;
 using static UnrulableWallet.UI.Shared.Helpers;
 
@@ -16,10 +16,12 @@ namespace UnrulableWallet.UI
 {
     public partial class Main : Form
     {
-        public static int currentAvailableWalletsCount;
+        #region Fields
 
-        #region Models
+        private ReceiveBitcoinModel _receiveBitcoinModel;
 
+        #endregion
+        #region Properties
         public int CurrentAvailableWalletsCount => this.comboBoxYourAvailableWallets.Items.Count;
         public string CurrentOpenedWalletName => this.comboBoxYourAvailableWallets.SelectedItem.ToString();
 
@@ -29,7 +31,7 @@ namespace UnrulableWallet.UI
         public Main()
         {
             InitializeComponent();
-            groupBoxNewWalletDetails.Hide();
+
             // Load config file
             // It also creates it with default settings if doesn't exist
             Config.Load();
@@ -73,6 +75,13 @@ namespace UnrulableWallet.UI
             lblWalletCreateStatusValue.Text = "Successful";
             lblWalletCreateStatusValue.ForeColor = Color.Green;
         }
+
+        private void GenerateQrCodeDisplay(string value, int qrCodeHeight, PictureBox pictureBoxObject)
+        {
+            Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+            pictureBoxObject.Image = qrcode.Draw(value, qrCodeHeight);
+        }
+
         #endregion
 
         #region Click Events
@@ -140,7 +149,7 @@ namespace UnrulableWallet.UI
             Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
             List<string> confirmBalances = ShowBalances(walletFilePath, safe);
 
-            groupBoxCurrentWalletOpenDetails.Show();
+            tabControlaUnrulableWallet.Show();
             groupBoxEntryView.Hide();
             lblCurrentWalletNameOpenValue.Text = CurrentOpenedWalletName;
             lblOpenWalletBalanceValue.Text = confirmBalances.Count == 0 ? "0" : CalculateBalanceTotal(confirmBalances);
@@ -164,67 +173,92 @@ namespace UnrulableWallet.UI
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("SEND!!!!");
             groupBoxSendBitcoin.Show();
-            //groupBoxWalletTransactions.Hide();
+            groupBoxWalletTransactions.Hide();
         }
 
         private void btnTransactions_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Transactions!!!!");
             groupBoxWalletTransactions.Show();
             groupBoxSendBitcoin.Hide();
         }
 
-        private void btnReceive_Click(object sender, EventArgs e)
+        private void listViewAvailableBitcoinAddress_SelectedValueChanged(object sender, EventArgs e)
         {
-            var walletFilePath = GetWalletFilePath(CurrentOpenedWalletName);
-            Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
-
-            if (Config.ConnectionType == ConnectionType.Http)
+            // Get the currently selected item in the ListBox.
+            if (listBoxAllAvailableBitcoinAddresses?.SelectedItem != null)
             {
-                Dictionary<BitcoinAddress, List<BalanceOperation>> operationsPerReceiveAddresses = QueryOperationsPerSafeAddresses(safe, 7, HdPathType.Receive);
-
-                Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
-                pictureBoxBitcoinReceiveAddressQrCode.Image = qrcode.Draw(operationsPerReceiveAddresses.ElementAt(0).Key.ToString(), 50);
-                //foreach (var elem in operationsPerReceiveAddresses)
-                //    if (elem.Value.Count == 0)
-                //        WriteLine($"{elem.Key}");
+                string currentSelectedBitcoinAddressFromList = listBoxAllAvailableBitcoinAddresses.SelectedItem.ToString();
+                _receiveBitcoinModel.BitcoinAddress = currentSelectedBitcoinAddressFromList;
+                txtCurrentBitcoinReceiveAddress.Text = currentSelectedBitcoinAddressFromList;
+                receiveBitcoinModelBindingSource.DataSource = _receiveBitcoinModel;
+                GenerateQrCodeDisplay(currentSelectedBitcoinAddressFromList, 25, pictureBoxBitcoinReceiveAddressQrCode);
             }
-            else if (Config.ConnectionType == ConnectionType.FullNode)
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                throw new Exception("Invalid connection type.");
-            }
-
-            groupBoxReceiveBitcoin.Show();
         }
 
+        private void tabPageControl_IndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControlaUnrulableWallet.SelectedTab.Text)
+            {
+                case "Receive":
+                    var walletFilePath = GetWalletFilePath(CurrentOpenedWalletName);
+                    Safe safe = DecryptWalletByAskingForPassword(walletFilePath, txtOpenWalletPassword.Text);
+
+                    if (Config.ConnectionType == ConnectionType.Http)
+                    {
+                        Dictionary<BitcoinAddress, List<BalanceOperation>> operationsPerReceiveAddresses = QueryOperationsPerSafeAddresses(safe, 7, HdPathType.Receive);
+
+                        BitcoinAddress retrievedAddressInfo = GetCurrentBitcoinAddressFromAvailableAddresses(0, operationsPerReceiveAddresses);
+
+                        _receiveBitcoinModel = new ReceiveBitcoinModel(retrievedAddressInfo, operationsPerReceiveAddresses);
+                        receiveBitcoinModelBindingSource.DataSource = _receiveBitcoinModel;
+                        GenerateQrCodeDisplay(operationsPerReceiveAddresses.ElementAt(0).Key.ToString(), 25, pictureBoxBitcoinReceiveAddressQrCode);
+                    }
+                    else if (Config.ConnectionType == ConnectionType.FullNode)
+                    {
+                        throw new NotImplementedException();
+                    }
+                    else
+                    {
+                        throw new Exception("Invalid connection type.");
+                    }
+
+                    break;
+                case "Send":
+                    // Test
+                    break;
+                default:
+                    MessageBox.Show("hello world");
+                    break;
+            }
+        }
         #endregion
 
         #region Private Methods
+
+        private BitcoinAddress GetCurrentBitcoinAddressFromAvailableAddresses(int index, Dictionary<BitcoinAddress, List<BalanceOperation>> operationsPerReceiveAddresses)
+        {
+            return operationsPerReceiveAddresses.ElementAt(index).Key;
+        }
+
         private string CalculateBalanceTotal(List<string> confirmBalances)
         {
             return "0";
         }
 
-        private static List<string> GetAvailableBitcoinWallets()
+        private List<string> GetAvailableBitcoinWallets()
         {
             string[] wallets = Directory.GetFiles(@"Wallets", "*");
             List<string> walletsList = new List<string>();
 
             // The stored wallet count != wallets we just pulled from directory
             // then update the list so we have the full list of available wallets
-            if (currentAvailableWalletsCount != wallets.Length)
+            if (CurrentAvailableWalletsCount != wallets.Length)
             {
                 foreach (string wallet in wallets)
                 {
                     string fileName = Path.GetFileName(wallet).Replace(".json", string.Empty);
                     walletsList.Add(fileName);
-                    currentAvailableWalletsCount++;
                 }
             }
 

@@ -66,23 +66,27 @@
             this.lblTransactionStatus = new System.Windows.Forms.Label();
             this.lblTransactionStatusValue = new System.Windows.Forms.TextBox();
             this.lblIncludedInBlock = new System.Windows.Forms.Label();
-            this.tabPageRecieveBitcoin = new System.Windows.Forms.TabPage();
-            this.listViewAvailableAddresses = new System.Windows.Forms.ListView();
-            this.txtWalletPasswordToGenerateAddressFor = new System.Windows.Forms.TextBox();
-            this.lblWalletPasswordToGenerateAddressFor = new System.Windows.Forms.Label();
-            this.lblAddressThatWasGenerated = new System.Windows.Forms.Label();
-            this.lblWalletNameToGenerateAddressFor = new System.Windows.Forms.Label();
-            this.txtWalletNameToGenerateAddressFor = new System.Windows.Forms.TextBox();
-            this.btnGenerateAddress = new System.Windows.Forms.Button();
-            this.tabPageSendBitcoin = new System.Windows.Forms.TabPage();
-            this.groupBoxCurrentWalletOpenDetails = new System.Windows.Forms.GroupBox();
-            this.groupBoxReceiveBitcoin = new System.Windows.Forms.GroupBox();
-            this.pictureBoxBitcoinReceiveAddressQrCode = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tabPageReceiveBitcoin = new System.Windows.Forms.TabPage();
+            this.lblBitcoinAddressQrCode = new System.Windows.Forms.Label();
+            this.listBoxAllAvailableBitcoinAddresses = new System.Windows.Forms.ListBox();
+            this.allAvailableBitcoinAddressesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.receiveBitcoinModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtCurrentBitcoinReceiveAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBoxBitcoinReceiveAddressQrCode = new System.Windows.Forms.PictureBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lblAddressThatWasGenerated = new System.Windows.Forms.Label();
+            this.tabPageSendBitcoin = new System.Windows.Forms.TabPage();
+            this.allAvailableBitcoinAddressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBoxEntryView = new System.Windows.Forms.GroupBox();
+            this.lblStatusRetrievingWalletDetails = new System.Windows.Forms.Label();
+            this.btnOpenWallet = new System.Windows.Forms.Button();
+            this.txtOpenWalletPassword = new System.Windows.Forms.TextBox();
+            this.lblOpenWalletPassword = new System.Windows.Forms.Label();
+            this.lblSelectAWalletToOpen = new System.Windows.Forms.Label();
+            this.comboBoxYourAvailableWallets = new System.Windows.Forms.ComboBox();
+            this.groupBoxCurrentWalletOpenDetails = new System.Windows.Forms.GroupBox();
             this.btnReceive = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnTransactions = new System.Windows.Forms.Button();
@@ -100,6 +104,11 @@
             this.lblOpenWalletTransactionHistory = new System.Windows.Forms.Label();
             this.lblCurrentWalletOpenName = new System.Windows.Forms.Label();
             this.dataGridViewTransactionHistory = new System.Windows.Forms.DataGridView();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstSeenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.confirmedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.transactionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressHistoryRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblOpenWalletBalance = new System.Windows.Forms.Label();
             this.lblTransactionCountValue = new System.Windows.Forms.TextBox();
             this.lblOpenWalletBalanceValue = new System.Windows.Forms.TextBox();
@@ -110,34 +119,24 @@
             this.toolStripMenuItemOpenWallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemWalletCreate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRecoverWallet = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBoxEntryView = new System.Windows.Forms.GroupBox();
-            this.lblStatusRetrievingWalletDetails = new System.Windows.Forms.Label();
-            this.btnOpenWallet = new System.Windows.Forms.Button();
-            this.txtOpenWalletPassword = new System.Windows.Forms.TextBox();
-            this.lblOpenWalletPassword = new System.Windows.Forms.Label();
-            this.lblSelectAWalletToOpen = new System.Windows.Forms.Label();
-            this.comboBoxYourAvailableWallets = new System.Windows.Forms.ComboBox();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstSeenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.confirmedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.transactionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressHistoryRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlaUnrulableWallet.SuspendLayout();
             this.tabPageCreateWallet.SuspendLayout();
             this.groupBoxNewWalletDetails.SuspendLayout();
             this.tabPageRecoverWallet.SuspendLayout();
             this.tabPageSearchTransaction.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPageRecieveBitcoin.SuspendLayout();
-            this.groupBoxCurrentWalletOpenDetails.SuspendLayout();
-            this.groupBoxReceiveBitcoin.SuspendLayout();
+            this.tabPageReceiveBitcoin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allAvailableBitcoinAddressesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveBitcoinModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBitcoinReceiveAddressQrCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allAvailableBitcoinAddressesBindingSource)).BeginInit();
+            this.groupBoxEntryView.SuspendLayout();
+            this.groupBoxCurrentWalletOpenDetails.SuspendLayout();
             this.groupBoxWalletTransactions.SuspendLayout();
             this.groupBoxSendBitcoin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactionHistory)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            this.groupBoxEntryView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressHistoryRecordBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlaUnrulableWallet
@@ -146,7 +145,7 @@
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageCreateWallet);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageRecoverWallet);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageSearchTransaction);
-            this.tabControlaUnrulableWallet.Controls.Add(this.tabPageRecieveBitcoin);
+            this.tabControlaUnrulableWallet.Controls.Add(this.tabPageReceiveBitcoin);
             this.tabControlaUnrulableWallet.Controls.Add(this.tabPageSendBitcoin);
             this.tabControlaUnrulableWallet.Location = new System.Drawing.Point(25, 79);
             this.tabControlaUnrulableWallet.Name = "tabControlaUnrulableWallet";
@@ -154,6 +153,7 @@
             this.tabControlaUnrulableWallet.Size = new System.Drawing.Size(1032, 791);
             this.tabControlaUnrulableWallet.TabIndex = 2;
             this.tabControlaUnrulableWallet.Visible = false;
+            this.tabControlaUnrulableWallet.SelectedIndexChanged += new System.EventHandler(this.tabPageControl_IndexChanged);
             // 
             // tabPageCreateWallet
             // 
@@ -521,80 +521,110 @@
             this.lblIncludedInBlock.TabIndex = 7;
             this.lblIncludedInBlock.Text = "Included in Block:";
             // 
-            // tabPageRecieveBitcoin
+            // tabPageReceiveBitcoin
             // 
-            this.tabPageRecieveBitcoin.Controls.Add(this.listViewAvailableAddresses);
-            this.tabPageRecieveBitcoin.Controls.Add(this.txtWalletPasswordToGenerateAddressFor);
-            this.tabPageRecieveBitcoin.Controls.Add(this.lblWalletPasswordToGenerateAddressFor);
-            this.tabPageRecieveBitcoin.Controls.Add(this.lblAddressThatWasGenerated);
-            this.tabPageRecieveBitcoin.Controls.Add(this.lblWalletNameToGenerateAddressFor);
-            this.tabPageRecieveBitcoin.Controls.Add(this.txtWalletNameToGenerateAddressFor);
-            this.tabPageRecieveBitcoin.Controls.Add(this.btnGenerateAddress);
-            this.tabPageRecieveBitcoin.Location = new System.Drawing.Point(4, 37);
-            this.tabPageRecieveBitcoin.Name = "tabPageRecieveBitcoin";
-            this.tabPageRecieveBitcoin.Size = new System.Drawing.Size(1024, 750);
-            this.tabPageRecieveBitcoin.TabIndex = 3;
-            this.tabPageRecieveBitcoin.Text = "Recieve";
-            this.tabPageRecieveBitcoin.UseVisualStyleBackColor = true;
+            this.tabPageReceiveBitcoin.Controls.Add(this.lblBitcoinAddressQrCode);
+            this.tabPageReceiveBitcoin.Controls.Add(this.listBoxAllAvailableBitcoinAddresses);
+            this.tabPageReceiveBitcoin.Controls.Add(this.txtCurrentBitcoinReceiveAddress);
+            this.tabPageReceiveBitcoin.Controls.Add(this.label4);
+            this.tabPageReceiveBitcoin.Controls.Add(this.label5);
+            this.tabPageReceiveBitcoin.Controls.Add(this.pictureBoxBitcoinReceiveAddressQrCode);
+            this.tabPageReceiveBitcoin.Controls.Add(this.textBox6);
+            this.tabPageReceiveBitcoin.Controls.Add(this.lblAddressThatWasGenerated);
+            this.tabPageReceiveBitcoin.Location = new System.Drawing.Point(4, 37);
+            this.tabPageReceiveBitcoin.Name = "tabPageReceiveBitcoin";
+            this.tabPageReceiveBitcoin.Size = new System.Drawing.Size(1024, 750);
+            this.tabPageReceiveBitcoin.TabIndex = 3;
+            this.tabPageReceiveBitcoin.Text = "Receive";
+            this.tabPageReceiveBitcoin.UseVisualStyleBackColor = true;
             // 
-            // listViewAvailableAddresses
+            // lblBitcoinAddressQrCode
             // 
-            this.listViewAvailableAddresses.HideSelection = false;
-            this.listViewAvailableAddresses.Location = new System.Drawing.Point(295, 391);
-            this.listViewAvailableAddresses.Name = "listViewAvailableAddresses";
-            this.listViewAvailableAddresses.Size = new System.Drawing.Size(412, 326);
-            this.listViewAvailableAddresses.TabIndex = 7;
-            this.listViewAvailableAddresses.UseCompatibleStateImageBehavior = false;
+            this.lblBitcoinAddressQrCode.AutoSize = true;
+            this.lblBitcoinAddressQrCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBitcoinAddressQrCode.Location = new System.Drawing.Point(37, 671);
+            this.lblBitcoinAddressQrCode.Name = "lblBitcoinAddressQrCode";
+            this.lblBitcoinAddressQrCode.Size = new System.Drawing.Size(286, 25);
+            this.lblBitcoinAddressQrCode.TabIndex = 10;
+            this.lblBitcoinAddressQrCode.Text = "Bitcoin Address QR Code:";
             // 
-            // txtWalletPasswordToGenerateAddressFor
+            // listBoxAllAvailableBitcoinAddresses
             // 
-            this.txtWalletPasswordToGenerateAddressFor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWalletPasswordToGenerateAddressFor.Location = new System.Drawing.Point(295, 82);
-            this.txtWalletPasswordToGenerateAddressFor.Name = "txtWalletPasswordToGenerateAddressFor";
-            this.txtWalletPasswordToGenerateAddressFor.Size = new System.Drawing.Size(412, 31);
-            this.txtWalletPasswordToGenerateAddressFor.TabIndex = 6;
+            this.listBoxAllAvailableBitcoinAddresses.DataSource = this.allAvailableBitcoinAddressesBindingSource1;
+            this.listBoxAllAvailableBitcoinAddresses.FormattingEnabled = true;
+            this.listBoxAllAvailableBitcoinAddresses.ItemHeight = 25;
+            this.listBoxAllAvailableBitcoinAddresses.Location = new System.Drawing.Point(329, 39);
+            this.listBoxAllAvailableBitcoinAddresses.Name = "listBoxAllAvailableBitcoinAddresses";
+            this.listBoxAllAvailableBitcoinAddresses.Size = new System.Drawing.Size(469, 154);
+            this.listBoxAllAvailableBitcoinAddresses.TabIndex = 9;
+            this.listBoxAllAvailableBitcoinAddresses.SelectedValueChanged += new System.EventHandler(this.listViewAvailableBitcoinAddress_SelectedValueChanged);
             // 
-            // lblWalletPasswordToGenerateAddressFor
+            // allAvailableBitcoinAddressesBindingSource1
             // 
-            this.lblWalletPasswordToGenerateAddressFor.AutoSize = true;
-            this.lblWalletPasswordToGenerateAddressFor.Location = new System.Drawing.Point(47, 88);
-            this.lblWalletPasswordToGenerateAddressFor.Name = "lblWalletPasswordToGenerateAddressFor";
-            this.lblWalletPasswordToGenerateAddressFor.Size = new System.Drawing.Size(178, 25);
-            this.lblWalletPasswordToGenerateAddressFor.TabIndex = 5;
-            this.lblWalletPasswordToGenerateAddressFor.Text = "Wallet Password:";
+            this.allAvailableBitcoinAddressesBindingSource1.DataMember = "AllAvailableBitcoinAddresses";
+            this.allAvailableBitcoinAddressesBindingSource1.DataSource = this.receiveBitcoinModelBindingSource;
+            // 
+            // receiveBitcoinModelBindingSource
+            // 
+            this.receiveBitcoinModelBindingSource.DataSource = typeof(UnrulableWallet.UI.Models.ReceiveBitcoinModel);
+            // 
+            // txtCurrentBitcoinReceiveAddress
+            // 
+            this.txtCurrentBitcoinReceiveAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentBitcoinReceiveAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.receiveBitcoinModelBindingSource, "BitcoinAddress", true));
+            this.txtCurrentBitcoinReceiveAddress.Location = new System.Drawing.Point(169, 221);
+            this.txtCurrentBitcoinReceiveAddress.Name = "txtCurrentBitcoinReceiveAddress";
+            this.txtCurrentBitcoinReceiveAddress.Size = new System.Drawing.Size(629, 31);
+            this.txtCurrentBitcoinReceiveAddress.TabIndex = 1;
+            this.txtCurrentBitcoinReceiveAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(37, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Address:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(37, 280);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Label:";
+            // 
+            // pictureBoxBitcoinReceiveAddressQrCode
+            // 
+            this.pictureBoxBitcoinReceiveAddressQrCode.BackColor = System.Drawing.Color.White;
+            this.pictureBoxBitcoinReceiveAddressQrCode.Location = new System.Drawing.Point(329, 321);
+            this.pictureBoxBitcoinReceiveAddressQrCode.Name = "pictureBoxBitcoinReceiveAddressQrCode";
+            this.pictureBoxBitcoinReceiveAddressQrCode.Size = new System.Drawing.Size(469, 375);
+            this.pictureBoxBitcoinReceiveAddressQrCode.TabIndex = 8;
+            this.pictureBoxBitcoinReceiveAddressQrCode.TabStop = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Location = new System.Drawing.Point(169, 277);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(629, 31);
+            this.textBox6.TabIndex = 3;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAddressThatWasGenerated
             // 
             this.lblAddressThatWasGenerated.AutoSize = true;
-            this.lblAddressThatWasGenerated.Location = new System.Drawing.Point(47, 391);
+            this.lblAddressThatWasGenerated.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressThatWasGenerated.Location = new System.Drawing.Point(37, 39);
             this.lblAddressThatWasGenerated.Name = "lblAddressThatWasGenerated";
-            this.lblAddressThatWasGenerated.Size = new System.Drawing.Size(214, 25);
+            this.lblAddressThatWasGenerated.Size = new System.Drawing.Size(234, 25);
             this.lblAddressThatWasGenerated.TabIndex = 4;
             this.lblAddressThatWasGenerated.Text = "Available Addresses:";
-            // 
-            // lblWalletNameToGenerateAddressFor
-            // 
-            this.lblWalletNameToGenerateAddressFor.AutoSize = true;
-            this.lblWalletNameToGenerateAddressFor.Location = new System.Drawing.Point(47, 44);
-            this.lblWalletNameToGenerateAddressFor.Name = "lblWalletNameToGenerateAddressFor";
-            this.lblWalletNameToGenerateAddressFor.Size = new System.Drawing.Size(140, 25);
-            this.lblWalletNameToGenerateAddressFor.TabIndex = 3;
-            this.lblWalletNameToGenerateAddressFor.Text = "Wallet Name:";
-            // 
-            // txtWalletNameToGenerateAddressFor
-            // 
-            this.txtWalletNameToGenerateAddressFor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWalletNameToGenerateAddressFor.Location = new System.Drawing.Point(295, 38);
-            this.txtWalletNameToGenerateAddressFor.Name = "txtWalletNameToGenerateAddressFor";
-            this.txtWalletNameToGenerateAddressFor.Size = new System.Drawing.Size(412, 31);
-            this.txtWalletNameToGenerateAddressFor.TabIndex = 2;
-            // 
-            // btnGenerateAddress
-            // 
-            this.btnGenerateAddress.Location = new System.Drawing.Point(0, 0);
-            this.btnGenerateAddress.Name = "btnGenerateAddress";
-            this.btnGenerateAddress.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerateAddress.TabIndex = 8;
             // 
             // tabPageSendBitcoin
             // 
@@ -605,116 +635,120 @@
             this.tabPageSendBitcoin.Text = "Send";
             this.tabPageSendBitcoin.UseVisualStyleBackColor = true;
             // 
+            // allAvailableBitcoinAddressesBindingSource
+            // 
+            this.allAvailableBitcoinAddressesBindingSource.DataMember = "AllAvailableBitcoinAddresses";
+            this.allAvailableBitcoinAddressesBindingSource.DataSource = this.receiveBitcoinModelBindingSource;
+            // 
+            // groupBoxEntryView
+            // 
+            this.groupBoxEntryView.Controls.Add(this.lblStatusRetrievingWalletDetails);
+            this.groupBoxEntryView.Controls.Add(this.btnOpenWallet);
+            this.groupBoxEntryView.Controls.Add(this.txtOpenWalletPassword);
+            this.groupBoxEntryView.Controls.Add(this.lblOpenWalletPassword);
+            this.groupBoxEntryView.Controls.Add(this.lblSelectAWalletToOpen);
+            this.groupBoxEntryView.Controls.Add(this.comboBoxYourAvailableWallets);
+            this.groupBoxEntryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEntryView.Location = new System.Drawing.Point(84, 886);
+            this.groupBoxEntryView.Name = "groupBoxEntryView";
+            this.groupBoxEntryView.Size = new System.Drawing.Size(1032, 791);
+            this.groupBoxEntryView.TabIndex = 5;
+            this.groupBoxEntryView.TabStop = false;
+            this.groupBoxEntryView.Text = "Welcome to your Unrulable Wallet!";
+            // 
+            // lblStatusRetrievingWalletDetails
+            // 
+            this.lblStatusRetrievingWalletDetails.AutoSize = true;
+            this.lblStatusRetrievingWalletDetails.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatusRetrievingWalletDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusRetrievingWalletDetails.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblStatusRetrievingWalletDetails.Location = new System.Drawing.Point(282, 382);
+            this.lblStatusRetrievingWalletDetails.Name = "lblStatusRetrievingWalletDetails";
+            this.lblStatusRetrievingWalletDetails.Size = new System.Drawing.Size(417, 37);
+            this.lblStatusRetrievingWalletDetails.TabIndex = 5;
+            this.lblStatusRetrievingWalletDetails.Text = "Retrieving Wallet Details...";
+            this.lblStatusRetrievingWalletDetails.Visible = false;
+            // 
+            // btnOpenWallet
+            // 
+            this.btnOpenWallet.Location = new System.Drawing.Point(375, 260);
+            this.btnOpenWallet.Name = "btnOpenWallet";
+            this.btnOpenWallet.Size = new System.Drawing.Size(324, 49);
+            this.btnOpenWallet.TabIndex = 4;
+            this.btnOpenWallet.Text = "Open";
+            this.btnOpenWallet.UseVisualStyleBackColor = true;
+            this.btnOpenWallet.Click += new System.EventHandler(this.btnOpenWallet_Click);
+            // 
+            // txtOpenWalletPassword
+            // 
+            this.txtOpenWalletPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOpenWalletPassword.Location = new System.Drawing.Point(375, 195);
+            this.txtOpenWalletPassword.Name = "txtOpenWalletPassword";
+            this.txtOpenWalletPassword.PasswordChar = '*';
+            this.txtOpenWalletPassword.Size = new System.Drawing.Size(324, 31);
+            this.txtOpenWalletPassword.TabIndex = 3;
+            this.txtOpenWalletPassword.UseSystemPasswordChar = true;
+            // 
+            // lblOpenWalletPassword
+            // 
+            this.lblOpenWalletPassword.AutoSize = true;
+            this.lblOpenWalletPassword.Location = new System.Drawing.Point(217, 197);
+            this.lblOpenWalletPassword.Name = "lblOpenWalletPassword";
+            this.lblOpenWalletPassword.Size = new System.Drawing.Size(121, 25);
+            this.lblOpenWalletPassword.TabIndex = 2;
+            this.lblOpenWalletPassword.Text = "Password:";
+            // 
+            // lblSelectAWalletToOpen
+            // 
+            this.lblSelectAWalletToOpen.AutoSize = true;
+            this.lblSelectAWalletToOpen.Location = new System.Drawing.Point(80, 133);
+            this.lblSelectAWalletToOpen.Name = "lblSelectAWalletToOpen";
+            this.lblSelectAWalletToOpen.Size = new System.Drawing.Size(259, 25);
+            this.lblSelectAWalletToOpen.TabIndex = 1;
+            this.lblSelectAWalletToOpen.Text = "Select a wallet to open:";
+            // 
+            // comboBoxYourAvailableWallets
+            // 
+            this.comboBoxYourAvailableWallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYourAvailableWallets.FormattingEnabled = true;
+            this.comboBoxYourAvailableWallets.Location = new System.Drawing.Point(375, 125);
+            this.comboBoxYourAvailableWallets.Name = "comboBoxYourAvailableWallets";
+            this.comboBoxYourAvailableWallets.Size = new System.Drawing.Size(324, 33);
+            this.comboBoxYourAvailableWallets.TabIndex = 0;
+            // 
             // groupBoxCurrentWalletOpenDetails
             // 
             this.groupBoxCurrentWalletOpenDetails.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.groupBoxReceiveBitcoin);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.btnReceive);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.btnSend);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.btnTransactions);
             this.groupBoxCurrentWalletOpenDetails.Controls.Add(this.groupBoxWalletTransactions);
-            this.groupBoxCurrentWalletOpenDetails.Location = new System.Drawing.Point(24, 81);
+            this.groupBoxCurrentWalletOpenDetails.Location = new System.Drawing.Point(1204, 98);
             this.groupBoxCurrentWalletOpenDetails.Name = "groupBoxCurrentWalletOpenDetails";
-            this.groupBoxCurrentWalletOpenDetails.Size = new System.Drawing.Size(1516, 783);
+            this.groupBoxCurrentWalletOpenDetails.Size = new System.Drawing.Size(1468, 783);
             this.groupBoxCurrentWalletOpenDetails.TabIndex = 3;
             this.groupBoxCurrentWalletOpenDetails.TabStop = false;
             this.groupBoxCurrentWalletOpenDetails.Text = "Wallet";
             this.groupBoxCurrentWalletOpenDetails.Visible = false;
-            // 
-            // groupBoxReceiveBitcoin
-            // 
-            this.groupBoxReceiveBitcoin.BackColor = System.Drawing.Color.DarkSalmon;
-            this.groupBoxReceiveBitcoin.Controls.Add(this.pictureBoxBitcoinReceiveAddressQrCode);
-            this.groupBoxReceiveBitcoin.Controls.Add(this.button1);
-            this.groupBoxReceiveBitcoin.Controls.Add(this.textBox4);
-            this.groupBoxReceiveBitcoin.Controls.Add(this.label4);
-            this.groupBoxReceiveBitcoin.Controls.Add(this.label5);
-            this.groupBoxReceiveBitcoin.Controls.Add(this.textBox6);
-            this.groupBoxReceiveBitcoin.Location = new System.Drawing.Point(17, 41);
-            this.groupBoxReceiveBitcoin.Name = "groupBoxReceiveBitcoin";
-            this.groupBoxReceiveBitcoin.Size = new System.Drawing.Size(1211, 716);
-            this.groupBoxReceiveBitcoin.TabIndex = 11;
-            this.groupBoxReceiveBitcoin.TabStop = false;
-            this.groupBoxReceiveBitcoin.Visible = false;
-            // 
-            // pictureBoxBitcoinReceiveAddressQrCode
-            // 
-            this.pictureBoxBitcoinReceiveAddressQrCode.BackColor = System.Drawing.Color.White;
-            this.pictureBoxBitcoinReceiveAddressQrCode.Location = new System.Drawing.Point(431, 264);
-            this.pictureBoxBitcoinReceiveAddressQrCode.Name = "pictureBoxBitcoinReceiveAddressQrCode";
-            this.pictureBoxBitcoinReceiveAddressQrCode.Size = new System.Drawing.Size(508, 431);
-            this.pictureBoxBitcoinReceiveAddressQrCode.TabIndex = 8;
-            this.pictureBoxBitcoinReceiveAddressQrCode.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(166, 184);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(648, 54);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Get Next Bitcoin Address";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(166, 56);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(648, 31);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Address:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Label:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(166, 112);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(648, 31);
-            this.textBox6.TabIndex = 3;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnReceive
             // 
             this.btnReceive.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnReceive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReceive.Location = new System.Drawing.Point(1234, 501);
+            this.btnReceive.Location = new System.Drawing.Point(1170, 515);
             this.btnReceive.Name = "btnReceive";
             this.btnReceive.Size = new System.Drawing.Size(276, 221);
             this.btnReceive.TabIndex = 12;
             this.btnReceive.Text = "Receive";
             this.btnReceive.UseVisualStyleBackColor = false;
-            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
             // 
             // btnSend
             // 
             this.btnSend.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(1234, 285);
+            this.btnSend.Location = new System.Drawing.Point(1170, 299);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(276, 200);
             this.btnSend.TabIndex = 11;
@@ -727,7 +761,7 @@
             this.btnTransactions.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransactions.Location = new System.Drawing.Point(1234, 54);
+            this.btnTransactions.Location = new System.Drawing.Point(1170, 68);
             this.btnTransactions.Name = "btnTransactions";
             this.btnTransactions.Size = new System.Drawing.Size(276, 213);
             this.btnTransactions.TabIndex = 10;
@@ -750,7 +784,7 @@
             this.groupBoxWalletTransactions.Controls.Add(this.label3);
             this.groupBoxWalletTransactions.Location = new System.Drawing.Point(11, 41);
             this.groupBoxWalletTransactions.Name = "groupBoxWalletTransactions";
-            this.groupBoxWalletTransactions.Size = new System.Drawing.Size(1217, 716);
+            this.groupBoxWalletTransactions.Size = new System.Drawing.Size(1142, 716);
             this.groupBoxWalletTransactions.TabIndex = 9;
             this.groupBoxWalletTransactions.TabStop = false;
             // 
@@ -765,9 +799,9 @@
             this.groupBoxSendBitcoin.Controls.Add(this.textBox2);
             this.groupBoxSendBitcoin.Controls.Add(this.textBox3);
             this.groupBoxSendBitcoin.Controls.Add(this.lblSendAmount);
-            this.groupBoxSendBitcoin.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxSendBitcoin.Location = new System.Drawing.Point(0, 536);
             this.groupBoxSendBitcoin.Name = "groupBoxSendBitcoin";
-            this.groupBoxSendBitcoin.Size = new System.Drawing.Size(1217, 716);
+            this.groupBoxSendBitcoin.Size = new System.Drawing.Size(1142, 716);
             this.groupBoxSendBitcoin.TabIndex = 10;
             this.groupBoxSendBitcoin.TabStop = false;
             this.groupBoxSendBitcoin.Visible = false;
@@ -899,6 +933,46 @@
             this.dataGridViewTransactionHistory.Size = new System.Drawing.Size(937, 150);
             this.dataGridViewTransactionHistory.TabIndex = 7;
             // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // firstSeenDataGridViewTextBoxColumn
+            // 
+            this.firstSeenDataGridViewTextBoxColumn.DataPropertyName = "FirstSeen";
+            this.firstSeenDataGridViewTextBoxColumn.HeaderText = "FirstSeen";
+            this.firstSeenDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.firstSeenDataGridViewTextBoxColumn.Name = "firstSeenDataGridViewTextBoxColumn";
+            this.firstSeenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstSeenDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // confirmedDataGridViewCheckBoxColumn
+            // 
+            this.confirmedDataGridViewCheckBoxColumn.DataPropertyName = "Confirmed";
+            this.confirmedDataGridViewCheckBoxColumn.HeaderText = "Confirmed";
+            this.confirmedDataGridViewCheckBoxColumn.MinimumWidth = 10;
+            this.confirmedDataGridViewCheckBoxColumn.Name = "confirmedDataGridViewCheckBoxColumn";
+            this.confirmedDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.confirmedDataGridViewCheckBoxColumn.Width = 200;
+            // 
+            // transactionIdDataGridViewTextBoxColumn
+            // 
+            this.transactionIdDataGridViewTextBoxColumn.DataPropertyName = "TransactionId";
+            this.transactionIdDataGridViewTextBoxColumn.HeaderText = "TransactionId";
+            this.transactionIdDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.transactionIdDataGridViewTextBoxColumn.Name = "transactionIdDataGridViewTextBoxColumn";
+            this.transactionIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transactionIdDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // addressHistoryRecordBindingSource
+            // 
+            this.addressHistoryRecordBindingSource.DataSource = typeof(UnrulableWallet.UI.Models.AddressHistoryRecord);
+            // 
             // lblOpenWalletBalance
             // 
             this.lblOpenWalletBalance.AutoSize = true;
@@ -956,7 +1030,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1560, 48);
+            this.menuStrip1.Size = new System.Drawing.Size(2591, 40);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -967,7 +1041,7 @@
             this.toolStripMenuItemWalletCreate,
             this.toolStripMenuItemRecoverWallet});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 40);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 36);
             this.toolStripMenuItem1.Text = "Wallet";
             // 
             // toolStripMenuItemOpenWallet
@@ -990,128 +1064,12 @@
             this.toolStripMenuItemRecoverWallet.Size = new System.Drawing.Size(231, 44);
             this.toolStripMenuItemRecoverWallet.Text = "Recover";
             // 
-            // groupBoxEntryView
-            // 
-            this.groupBoxEntryView.Controls.Add(this.lblStatusRetrievingWalletDetails);
-            this.groupBoxEntryView.Controls.Add(this.btnOpenWallet);
-            this.groupBoxEntryView.Controls.Add(this.txtOpenWalletPassword);
-            this.groupBoxEntryView.Controls.Add(this.lblOpenWalletPassword);
-            this.groupBoxEntryView.Controls.Add(this.lblSelectAWalletToOpen);
-            this.groupBoxEntryView.Controls.Add(this.comboBoxYourAvailableWallets);
-            this.groupBoxEntryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEntryView.Location = new System.Drawing.Point(25, 79);
-            this.groupBoxEntryView.Name = "groupBoxEntryView";
-            this.groupBoxEntryView.Size = new System.Drawing.Size(1032, 791);
-            this.groupBoxEntryView.TabIndex = 5;
-            this.groupBoxEntryView.TabStop = false;
-            this.groupBoxEntryView.Text = "Welcome to your Unrulable Wallet!";
-            // 
-            // lblStatusRetrievingWalletDetails
-            // 
-            this.lblStatusRetrievingWalletDetails.AutoSize = true;
-            this.lblStatusRetrievingWalletDetails.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatusRetrievingWalletDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusRetrievingWalletDetails.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblStatusRetrievingWalletDetails.Location = new System.Drawing.Point(282, 382);
-            this.lblStatusRetrievingWalletDetails.Name = "lblStatusRetrievingWalletDetails";
-            this.lblStatusRetrievingWalletDetails.Size = new System.Drawing.Size(417, 37);
-            this.lblStatusRetrievingWalletDetails.TabIndex = 5;
-            this.lblStatusRetrievingWalletDetails.Text = "Retrieving Wallet Details...";
-            this.lblStatusRetrievingWalletDetails.Visible = false;
-            // 
-            // btnOpenWallet
-            // 
-            this.btnOpenWallet.Location = new System.Drawing.Point(375, 260);
-            this.btnOpenWallet.Name = "btnOpenWallet";
-            this.btnOpenWallet.Size = new System.Drawing.Size(324, 49);
-            this.btnOpenWallet.TabIndex = 4;
-            this.btnOpenWallet.Text = "Open";
-            this.btnOpenWallet.UseVisualStyleBackColor = true;
-            this.btnOpenWallet.Click += new System.EventHandler(this.btnOpenWallet_Click);
-            // 
-            // txtOpenWalletPassword
-            // 
-            this.txtOpenWalletPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOpenWalletPassword.Location = new System.Drawing.Point(375, 195);
-            this.txtOpenWalletPassword.Name = "txtOpenWalletPassword";
-            this.txtOpenWalletPassword.PasswordChar = '*';
-            this.txtOpenWalletPassword.Size = new System.Drawing.Size(324, 31);
-            this.txtOpenWalletPassword.TabIndex = 3;
-            this.txtOpenWalletPassword.UseSystemPasswordChar = true;
-            // 
-            // lblOpenWalletPassword
-            // 
-            this.lblOpenWalletPassword.AutoSize = true;
-            this.lblOpenWalletPassword.Location = new System.Drawing.Point(217, 197);
-            this.lblOpenWalletPassword.Name = "lblOpenWalletPassword";
-            this.lblOpenWalletPassword.Size = new System.Drawing.Size(121, 25);
-            this.lblOpenWalletPassword.TabIndex = 2;
-            this.lblOpenWalletPassword.Text = "Password:";
-            // 
-            // lblSelectAWalletToOpen
-            // 
-            this.lblSelectAWalletToOpen.AutoSize = true;
-            this.lblSelectAWalletToOpen.Location = new System.Drawing.Point(80, 133);
-            this.lblSelectAWalletToOpen.Name = "lblSelectAWalletToOpen";
-            this.lblSelectAWalletToOpen.Size = new System.Drawing.Size(259, 25);
-            this.lblSelectAWalletToOpen.TabIndex = 1;
-            this.lblSelectAWalletToOpen.Text = "Select a wallet to open:";
-            // 
-            // comboBoxYourAvailableWallets
-            // 
-            this.comboBoxYourAvailableWallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxYourAvailableWallets.FormattingEnabled = true;
-            this.comboBoxYourAvailableWallets.Location = new System.Drawing.Point(375, 125);
-            this.comboBoxYourAvailableWallets.Name = "comboBoxYourAvailableWallets";
-            this.comboBoxYourAvailableWallets.Size = new System.Drawing.Size(324, 33);
-            this.comboBoxYourAvailableWallets.TabIndex = 0;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // firstSeenDataGridViewTextBoxColumn
-            // 
-            this.firstSeenDataGridViewTextBoxColumn.DataPropertyName = "FirstSeen";
-            this.firstSeenDataGridViewTextBoxColumn.HeaderText = "FirstSeen";
-            this.firstSeenDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.firstSeenDataGridViewTextBoxColumn.Name = "firstSeenDataGridViewTextBoxColumn";
-            this.firstSeenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.firstSeenDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // confirmedDataGridViewCheckBoxColumn
-            // 
-            this.confirmedDataGridViewCheckBoxColumn.DataPropertyName = "Confirmed";
-            this.confirmedDataGridViewCheckBoxColumn.HeaderText = "Confirmed";
-            this.confirmedDataGridViewCheckBoxColumn.MinimumWidth = 10;
-            this.confirmedDataGridViewCheckBoxColumn.Name = "confirmedDataGridViewCheckBoxColumn";
-            this.confirmedDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.confirmedDataGridViewCheckBoxColumn.Width = 200;
-            // 
-            // transactionIdDataGridViewTextBoxColumn
-            // 
-            this.transactionIdDataGridViewTextBoxColumn.DataPropertyName = "TransactionId";
-            this.transactionIdDataGridViewTextBoxColumn.HeaderText = "TransactionId";
-            this.transactionIdDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.transactionIdDataGridViewTextBoxColumn.Name = "transactionIdDataGridViewTextBoxColumn";
-            this.transactionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.transactionIdDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // addressHistoryRecordBindingSource
-            // 
-            this.addressHistoryRecordBindingSource.DataSource = typeof(UnrulableWallet.UI.Models.AddressHistoryRecord);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1560, 881);
+            this.ClientSize = new System.Drawing.Size(2591, 1474);
             this.Controls.Add(this.groupBoxCurrentWalletOpenDetails);
             this.Controls.Add(this.groupBoxEntryView);
             this.Controls.Add(this.menuStrip1);
@@ -1131,22 +1089,23 @@
             this.tabPageSearchTransaction.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPageRecieveBitcoin.ResumeLayout(false);
-            this.tabPageRecieveBitcoin.PerformLayout();
-            this.groupBoxCurrentWalletOpenDetails.ResumeLayout(false);
-            this.groupBoxReceiveBitcoin.ResumeLayout(false);
-            this.groupBoxReceiveBitcoin.PerformLayout();
+            this.tabPageReceiveBitcoin.ResumeLayout(false);
+            this.tabPageReceiveBitcoin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allAvailableBitcoinAddressesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveBitcoinModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBitcoinReceiveAddressQrCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allAvailableBitcoinAddressesBindingSource)).EndInit();
+            this.groupBoxEntryView.ResumeLayout(false);
+            this.groupBoxEntryView.PerformLayout();
+            this.groupBoxCurrentWalletOpenDetails.ResumeLayout(false);
             this.groupBoxWalletTransactions.ResumeLayout(false);
             this.groupBoxWalletTransactions.PerformLayout();
             this.groupBoxSendBitcoin.ResumeLayout(false);
             this.groupBoxSendBitcoin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactionHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressHistoryRecordBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBoxEntryView.ResumeLayout(false);
-            this.groupBoxEntryView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addressHistoryRecordBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1189,23 +1148,17 @@
         private System.Windows.Forms.Button btnRecoverWallet;
         private System.Windows.Forms.TextBox txtProvidePasswordRecoverWallet;
         private System.Windows.Forms.TextBox txtProvideYourMnemonicRecoverWallet;
-        private System.Windows.Forms.TabPage tabPageRecieveBitcoin;
+        private System.Windows.Forms.TabPage tabPageReceiveBitcoin;
         private System.Windows.Forms.TabPage tabPageSendBitcoin;
         private System.Windows.Forms.Label lblWalletCreateStatusValue;
         private System.Windows.Forms.Label lblWalletCreateStatus;
-        private System.Windows.Forms.Button btnGenerateAddress;
         private System.Windows.Forms.Label lblAddressThatWasGenerated;
-        private System.Windows.Forms.Label lblWalletNameToGenerateAddressFor;
-        private System.Windows.Forms.TextBox txtWalletNameToGenerateAddressFor;
-        private System.Windows.Forms.TextBox txtWalletPasswordToGenerateAddressFor;
-        private System.Windows.Forms.Label lblWalletPasswordToGenerateAddressFor;
         private System.Windows.Forms.GroupBox groupBoxCurrentWalletOpenDetails;
         private System.Windows.Forms.Label lblCurrentWalletOpenName;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemWalletCreate;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRecoverWallet;
-        private System.Windows.Forms.ListView listViewAvailableAddresses;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpenWallet;
         private System.Windows.Forms.GroupBox groupBoxEntryView;
         private System.Windows.Forms.Label lblSelectAWalletToOpen;
@@ -1240,13 +1193,16 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label lblSendAmount;
         private System.Windows.Forms.ComboBox comboBoxSendCurrencySelection;
-        private System.Windows.Forms.GroupBox groupBoxReceiveBitcoin;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCurrentBitcoinReceiveAddress;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.PictureBox pictureBoxBitcoinReceiveAddressQrCode;
+        private System.Windows.Forms.BindingSource receiveBitcoinModelBindingSource;
+        private System.Windows.Forms.BindingSource allAvailableBitcoinAddressesBindingSource;
+        private System.Windows.Forms.ListBox listBoxAllAvailableBitcoinAddresses;
+        private System.Windows.Forms.BindingSource allAvailableBitcoinAddressesBindingSource1;
+        private System.Windows.Forms.Label lblBitcoinAddressQrCode;
     }
 }
 
