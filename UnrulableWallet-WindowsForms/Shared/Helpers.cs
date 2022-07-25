@@ -1,5 +1,6 @@
 ﻿using NBitcoin;
 using System;
+using System.Globalization;
 using System.IO;
 
 namespace UnrulableWallet.UI.Shared
@@ -61,6 +62,22 @@ namespace UnrulableWallet.UI.Shared
             var walletDirName = "Wallets";
             Directory.CreateDirectory(walletDirName);
             return Path.Combine(walletDirName, $"{walletFileName}.json");
+        }
+
+        public static Money ParseBtcString(string value)
+        {
+            decimal amount;
+            if (!decimal.TryParse(
+                    value.Replace(',', '.'),
+                    NumberStyles.Any,
+                    CultureInfo.InvariantCulture,
+                    out amount))
+            {
+                throw new Exception("Wrong btc amount format.");
+            }
+
+
+            return new Money(amount, MoneyUnit.BTC);
         }
     }
 }

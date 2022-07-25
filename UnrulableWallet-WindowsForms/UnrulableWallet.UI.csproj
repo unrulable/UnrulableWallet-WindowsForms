@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConcurrentCollections, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -224,6 +226,7 @@
     <Compile Include="CreateWallet.Designer.cs">
       <DependentUpon>CreateWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FakeData.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +235,7 @@
     </Compile>
     <Compile Include="Models\AddressHistoryRecord.cs" />
     <Compile Include="Models\ReceiveBitcoinModel.cs" />
+    <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecoverWallet.cs">
@@ -242,6 +246,7 @@
     </Compile>
     <Compile Include="Shared\Enums.cs" />
     <Compile Include="Shared\Helpers.cs" />
+    <Compile Include="Shared\Utils.cs" />
     <Compile Include="Wrapper\QBitNinjaWrapper.cs" />
     <EmbeddedResource Include="CreateWallet.resx">
       <DependentUpon>CreateWallet.cs</DependentUpon>
@@ -264,6 +269,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\UnrulableWallet.UI.Models.AddressHistoryRecord.datasource" />
     <None Include="Properties\DataSources\UnrulableWallet.UI.Models.ReceiveBitcoinModel.datasource" />
+    <None Include="Properties\DataSources\UnrulableWallet.UI.Models.WalletModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

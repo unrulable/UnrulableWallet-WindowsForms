@@ -4,7 +4,6 @@ using QBitNinja.Client.Models;
 using System.Collections.Generic;
 using System.Linq;
 using HBitcoin.KeyManagement;
-using static UnrulableWallet.UI.Shared.Enums;
 using UnrulableWallet.UI.Models;
 
 namespace UnrulableWallet.UI.Wrapper
@@ -26,43 +25,45 @@ namespace UnrulableWallet.UI.Wrapper
             }
         }
 
-        //public static bool SelectCoins(ref HashSet<Coin> coinsToSpend, Money totalOutAmount, List<Coin> unspentCoins)
-        //{
-        //	var haveEnough = false;
-        //	foreach (var coin in unspentCoins.OrderByDescending(x => x.Amount))
-        //	{
-        //		coinsToSpend.Add(coin);
-        //		// if doesn't reach amount, continue adding next coin
-        //		if (coinsToSpend.Sum(x => x.Amount) < totalOutAmount) continue;
-        //		else
-        //		{
-        //			haveEnough = true;
-        //			break;
-        //		}
-        //	}
+        public static bool SelectCoins(ref HashSet<Coin> coinsToSpend, Money totalOutAmount, List<Coin> unspentCoins)
+        {
+            var haveEnough = false;
+            foreach (var coin in unspentCoins.OrderByDescending(x => x.Amount))
+            {
+                coinsToSpend.Add(coin);
+                // if doesn't reach amount, continue adding next coin
+                if (coinsToSpend.Sum(x => x.Amount) < totalOutAmount) continue;
+                else
+                {
+                    haveEnough = true;
+                    break;
+                }
+            }
 
-        //	return haveEnough;
-        //}
-        //public static Dictionary<Coin, bool> GetUnspentCoins(IEnumerable<ISecret> secrets)
-        //{
-        //	var unspentCoins = new Dictionary<Coin, bool>();
-        //	foreach (var secret in secrets)
-        //	{
-        //		var destination = secret.PrivateKey.GetScriptPubKey(ScriptPubKeyType.Legacy).GetDestinationAddress(Config.Network);
+            return haveEnough;
+        }
 
-        //		var client = new QBitNinjaClient(Config.Network);
-        //		var balanceModel = client.GetBalance(destination, unspentOnly: true).Result;
-        //		foreach (var operation in balanceModel.Operations)
-        //		{
-        //			foreach (var elem in operation.ReceivedCoins.Select(coin => coin as Coin))
-        //			{
-        //				unspentCoins.Add(elem, operation.Confirmations > 0);
-        //			}
-        //		}
-        //	}
+        public static Dictionary<Coin, bool> GetUnspentCoins(IEnumerable<ISecret> secrets)
+        {
+            var unspentCoins = new Dictionary<Coin, bool>();
+            foreach (var secret in secrets)
+            {
+                var destination = secret.PrivateKey.GetScriptPubKey(ScriptPubKeyType.Legacy).GetDestinationAddress(Config.Network);
 
-        //	return unspentCoins;
-        //}
+                var client = new QBitNinjaClient(Config.Network);
+                var balanceModel = client.GetBalance(destination, unspentOnly: true).Result;
+                foreach (var operation in balanceModel.Operations)
+                {
+                    foreach (var elem in operation.ReceivedCoins.Select(coin => coin as Coin))
+                    {
+                        unspentCoins.Add(elem, operation.Confirmations > 0);
+                    }
+                }
+            }
+
+            return unspentCoins;
+        }
+
         //public static Dictionary<uint256, List<BalanceOperation>> GetOperationsPerTransactions(Dictionary<BitcoinAddress, List<BalanceOperation>> operationsPerAddresses)
         //{
         //	// 1. Get all the unique operations
@@ -104,6 +105,7 @@ namespace UnrulableWallet.UI.Wrapper
             }
 
             var addresses = safe.GetFirstNAddresses(minUnusedKeys, hdPathType.GetValueOrDefault());
+            
             //var addresses = FakeData.FakeSafe.GetFirstNAddresses(minUnusedKeys);
 
             var operationsPerAddresses = new Dictionary<BitcoinAddress, List<BalanceOperation>>();
@@ -113,7 +115,6 @@ namespace UnrulableWallet.UI.Wrapper
                 operationsPerAddresses.Add(elem.Key, elem.Value);
                 if (elem.Value.Count == 0) unusedKeyCount++;
             }
-            // WriteLine($"{operationsPerAddresses.Count} {hdPathType} keys are processed.");
 
             var startIndex = minUnusedKeys;
             while (unusedKeyCount < minUnusedKeys)
@@ -141,8 +142,11 @@ namespace UnrulableWallet.UI.Wrapper
             var client = new QBitNinjaClient(Config.Network);
             foreach (var addr in addresses)
             {
-                var operations = client.GetBalance(addr, unspentOnly: false).Result.Operations;
-                operationsPerAddresses.Add(addr, operations);
+                if (addr != null)
+                {
+                    var operations = client.GetBalance(addr, unspentOnly: false).Result.Operations;
+                    operationsPerAddresses.Add(addr, operations);
+                }
             }
             return operationsPerAddresses;
         }
